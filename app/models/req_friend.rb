@@ -1,0 +1,2 @@
+class ReqFriend < ApplicationRecord
+end

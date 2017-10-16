@@ -1,0 +1,2 @@
+class BloFriend < ApplicationRecord
+end

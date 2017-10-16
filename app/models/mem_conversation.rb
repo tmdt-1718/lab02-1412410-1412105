@@ -1,0 +1,2 @@
+class MemConversation < ApplicationRecord
+end

@@ -9,34 +9,66 @@
   </head>
 
   <body>
-  	<div class="row">
-  		<div class="header-content col-md-12">
-  			<nav class="navbar navbar-expand-md navbar-light" style="background-color: #C0C0C0;">
-	  			<a href="#" class="navbar-brand">InstaMes</a>
-	  			<button class="navbar-toggler" data-toggle="collapse" data-target="#collapsableContent">
-	  				<span class="navbar-toggler-icon"></span>
-	  			</button>
-	  			<div class="collapse navbar-collapse" id="collapsableContent">
-	  				<ul class="navbar-nav">
-	  					<li class="nav-item"><a href="/" class="nav-link">My messages</a></li>
-	  					<li class="nav-item"><a href="/friends" class="nav-link">My friends</a></li>
-	  				</ul>
-	  			</div>
-  			</nav>
-  		</div>
-  		<div class="content col-md-12">
-	        <%= yield %>
-	    </div>
-	    <div class="footer col-md-12" style="margin-top: 20px">
-          <nav class="navbar" style="background-color: #000080; color:#ff0";">@CREATED BY 1412410_1412105
-            <nav class="nav navbar-nav pull-xs-left">
-                    <a class="nav-item nav-link" href="/">Home</a>
-                    <a class="nav-item nav-link" href="#">About</a>
-                    <a class="nav-item nav-link" href="#">Help</a>
-                </nav>
-              </nav>
+    <div class="container">
+      <div class="row" style="background-color: #C0C0C0;">
+        <div class="header-content col-md-12" style="margin-bottom: 10px;">
+          <nav class="navbar navbar-expand-md navbar-light navbar-sticky-top" style="background-color: #C0C0C0;">
+            <a href="/" class="navbar-brand">
+              RAILS
+            </a>
+            <div class="collapse navbar-collapse" id="navbar-collapse-content">
+              <ul class="navbar-nav">
+                <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="/friend" class="nav-link">Friends</a></li>
+                <li class="nav-item"><a href="/conversation" class="nav-link">Conversations</a></li>
+                <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
+              </ul>
+              <ul class="navbar-nav ml-auto">
+                <% if session[:current_user] %>
+                    <div class="dropdown show">
+                      <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <%= session[:current_user]["user_name"]%>
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="#">Profile</a>
+                        <%= link_to "Log out", logout_path, method: :delete, class: "dropdown-item"%>
+                      </div>
+                    </div>
+                <% else %>
+                  <li class="nav-item">
+                    <a href="\sessions/login" class="nav-link">
+                      <button type="button" class="btn btn-outline-success">Login</button>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="\users/register" class="nav-link">
+                      <button type="button" class="btn btn-outline-info">Registry</button>
+                    </a>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+            <button class="navbar-toggler btn-primary" data-toggle="collapse" data-target="#navbar-collapse-content">
+              <span class="navbar-toggler-icon"></span>
+            </button>
         </div>
-  	</div>
+      </div>
+      <div class="row" style="background-color: #d2d1da;">
+        <div class="content col-md-12  mx-auto" style=" margin: 30px 0px;">
+              <%= yield %>
+        </div>
+      </div>
+      <div class="row" style="background-color: #C0C0C0;">
+        <div class="footer-content col-md-12" style="background-color: #C0C0C0; color:#098774; margin: 30px 15px 0px 15px; flex: 0px">
+          <h5>Create by 1412105 -1412410</h5>
+          <h6>VNU-HCM of Sience</h6>
+          <nav class="nav" style="background-color: #C0C0C0; color: #6892e3; float: right">
+            <a class="nav-item nav-link" href="/">Home</a>
+            <a class="nav-item nav-link" href="/about">About</a>
+          </nav>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
 

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 	get '/friends', to: 'friends#index'
 	get '/', to: 'messages#index'
+  get '/userlist', to: 'userlist#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/', to: 'home#index', as: :home

@@ -1,5 +1,5 @@
 class FriendsController < ApplicationController
 	def show
-		@friends = Friend.all
+		@friends = User.find_by(params[:user_id]).friends
 	end
 end

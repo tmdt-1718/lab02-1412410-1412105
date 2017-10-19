@@ -15,4 +15,8 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:user_name, :email, :password)
   end
+
+  def index
+    @users = Friend.find_by(id: params[:friends_id]).users
+  end 
 end

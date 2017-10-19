@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-	has_many :blogs
-	has_many :albums
+	has_many :friends
 
 	include BCrypt
 	def password

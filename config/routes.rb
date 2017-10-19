@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-	get '/friends', to: 'friends#index'
+	# get '/friends', to: 'friends#index'
+  resources :friends, only: [:index, :show]
 	get '/', to: 'messages#index'
   get '/userlist', to: 'userlist#index'
 
